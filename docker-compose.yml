@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   postgres:
-    image: postgres:latest
+    image: gnanendra546/postgres:latest
     container_name: postgres_db
     restart: always
     environment:
@@ -13,7 +13,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   app:
-    build: .
+    image: gnanendra546/hmsmain_app:latest
     container_name: HMS
     depends_on:
       - postgres
@@ -26,3 +26,48 @@ services:
 
 volumes:
   postgres-data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: "3.8"
+
+# services:
+#   postgres:
+#     image: postgres:latest
+#     container_name: postgres_db
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: super123
+#       POSTGRES_DB: HMS
+#     volumes:
+#       - postgres-data:/var/lib/postgresql/data
+
+#   app:
+#     build: .
+#     container_name: HMS
+#     depends_on:
+#       - postgres
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/HMS
+#       SPRING_DATASOURCE_USERNAME: postgres
+#       SPRING_DATASOURCE_PASSWORD: super123
+#     ports:
+#       - "8080:8080"
+
+# volumes:
+#   postgres-data:
