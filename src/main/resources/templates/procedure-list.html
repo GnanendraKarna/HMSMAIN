@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Procedure List</title>
+</head>
+<body>
+    <h1>Procedures</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            margin-top: 20px; /* Add some space above the buttons */
+            text-align: center; /* Center the buttons */
+        }
+        .button-container a {
+            margin: 0 10px; /* Add space between buttons */
+        }
+    </style>
+    <table border="50">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+        <tr th:each="procedure : ${procedures}">
+            <td th:text="${procedure.code}"></td>
+            <td th:text="${procedure.name}"></td>
+            <td th:text="${procedure.cost}"></td>
+        </tr>
+    </table>
+    <div class="button-container">
+        <a th:href="@{/procedures/add}"><button type="button">Add</button></a>
+        <a th:href="@{/procedures/update}"><button type="button">Update</button></a>
+        <a th:href="@{/procedures/delete}"><button type="button">Delete</button></a>
+    </div>
+</body>
+</html>
